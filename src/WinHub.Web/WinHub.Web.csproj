@@ -10,4 +10,8 @@
     <ProjectReference Include="..\WinHub.ServiceDefaults\WinHub.ServiceDefaults.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Update="SonarAnalyzer.CSharp" Version="9.32.0.97167" />
+  </ItemGroup>
+
 </Project>
