@@ -7,7 +7,7 @@ using WinHub.ApiService.Database;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add Database
-builder.AddSqlServerDbContext<WinHubContext>("sqldb");
+builder.AddNpgsqlDbContext<WinHubContext>("postgresdb");
 
 // Add service defaults & Aspire components.
 builder.AddServiceDefaults();

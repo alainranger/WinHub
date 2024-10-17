@@ -22,7 +22,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1958F47E-BED1-4132-BB08-8E79DB9D4BBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinHub.ApiService.IntegrationTests", "WinHub.ApiService.IntegrationTests\WinHub.ApiService.IntegrationTests.csproj", "{574FF77F-65AA-4DDF-8A7F-F81A707E2966}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinHub.ApiService.IntegrationTests", "tests\WinHub.ApiService.IntegrationTests\WinHub.ApiService.IntegrationTests.csproj", "{574FF77F-65AA-4DDF-8A7F-F81A707E2966}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

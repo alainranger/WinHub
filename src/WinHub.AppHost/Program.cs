@@ -1,10 +1,10 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
-var sql = builder.AddSqlServer("sql");
-var sqldb = sql.AddDatabase("sqldb");
+var postgres = builder.AddPostgres("postgres");
+var postgresdb = postgres.AddDatabase("postgresdb");
 
 var apiService = builder.AddProject<Projects.WinHub_ApiService>("apiservice").
-	WithReference(sqldb);
+	WithReference(postgresdb);
 
 builder.AddProject<Projects.WinHub_Web>("webfrontend")
 	.WithExternalHttpEndpoints()
