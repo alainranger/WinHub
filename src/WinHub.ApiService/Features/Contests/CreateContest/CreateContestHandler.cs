@@ -8,9 +8,9 @@ using WinHub.ApiService.Entities;
 
 namespace WinHub.ApiService.Features.Contests.CreateContest;
 
-public class UpdateContestHandler(WinHubContext dbContext, IValidator<UpdateContestCommand> validator) : IRequestHandler<UpdateContestCommand, Result<Guid>>
+public class CreateContestHandler(WinHubContext dbContext, IValidator<CreateContestCommand> validator) : IRequestHandler<CreateContestCommand, Result<Guid>>
 {
-	public async Task<Result<Guid>> Handle(UpdateContestCommand request, CancellationToken cancellationToken)
+	public async Task<Result<Guid>> Handle(CreateContestCommand request, CancellationToken cancellationToken)
 	{
 		ArgumentNullException.ThrowIfNull(request);
 

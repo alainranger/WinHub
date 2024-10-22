@@ -8,14 +8,14 @@ using WinHub.ApiService.Contracts;
 
 namespace WinHub.ApiService.Features.Contests.CreateContest;
 
-public class UpdateContestEndPoint : ICarterModule
+public class CreateContestEndPoint : ICarterModule
 {
 	public void AddRoutes(IEndpointRouteBuilder app) =>
 		app.MapPost("api/contest", async (CreateContestRequest request, ISender sender) =>
 		{
-			var command = request.Adapt<UpdateContestCommand>();
+			var command = request.Adapt<CreateContestCommand>();
 
-			var result = await sender.Send(command).ConfigureAwait(false);
+			var result = await sender.Send(command).ConfigureAwait(true);
 
 			if (result.IsFailure)
 				return Results.BadRequest(result.Error);

@@ -2,9 +2,9 @@
 
 namespace WinHub.ApiService.Features.Contests.CreateContest;
 
-public class UpdateContestValidator : AbstractValidator<UpdateContestCommand>
+public class CreateContestValidator : AbstractValidator<CreateContestCommand>
 {
-	public UpdateContestValidator()
+	public CreateContestValidator()
 	{
 		RuleFor(c => c.Name).NotEmpty();
 		RuleFor(c => c.Description).NotEmpty();
