@@ -7,4 +7,6 @@ public class Contest : BaseEntity<Guid>
 	public DateTime StartDateTime { get; set; }
 	public DateTime EndDateTime { get; set; }
 	public DateTime ContestDateTime { get; set; }
+
+	public ICollection<Participation> Participations { get; } = [];
 }
