@@ -4,14 +4,14 @@ using Mapster;
 
 using MediatR;
 
-using WinHub.ApiService.Contracts;
+using WinHub.ApiService.Contracts.ContestFeature;
 
 namespace WinHub.ApiService.Features.Contests.UpdateContest;
 
 public class UpdateContestEndPoint : ICarterModule
 {
 	public void AddRoutes(IEndpointRouteBuilder app) =>
-		app.MapPut("api/contest", async (CreateContestRequest request, ISender sender) =>
+		app.MapPut("api/contest", async (Guid id, UpdateContestRequest request, ISender sender) =>
 		{
 			var command = request.Adapt<UpdateContestCommand>();
 
@@ -20,6 +20,6 @@ public class UpdateContestEndPoint : ICarterModule
 			if (result.IsFailure)
 				return Results.BadRequest(result.Error);
 
-			return Results.Ok(result.Value);
+			return Results.Ok(result);
 		});
 }

@@ -4,7 +4,7 @@ using Mapster;
 
 using MediatR;
 
-using WinHub.ApiService.Contracts;
+using WinHub.ApiService.Contracts.ContestFeature;
 
 namespace WinHub.ApiService.Features.Contests.CreateContest;
 
