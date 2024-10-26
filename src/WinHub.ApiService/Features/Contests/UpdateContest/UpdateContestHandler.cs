@@ -30,7 +30,6 @@ public class UpdateContestHandler(WinHubContext dbContext, IValidator<UpdateCont
 				"The contest with the specified ID was not found"
 			));
 
-		contest.Id = request.Id;
 		contest.Name = request.Name;
 		contest.Description = request.Description;
 		contest.StartDateTime = request.StartDateTime;

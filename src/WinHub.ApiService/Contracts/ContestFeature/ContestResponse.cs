@@ -1,4 +1,4 @@
-﻿namespace WinHub.ApiService.Contracts;
+﻿namespace WinHub.ApiService.Contracts.ContestFeature;
 
 public class ContestResponse
 {

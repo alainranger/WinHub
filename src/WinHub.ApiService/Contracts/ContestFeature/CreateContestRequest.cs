@@ -1,11 +1,7 @@
-﻿using MediatR;
+﻿namespace WinHub.ApiService.Contracts.ContestFeature;
 
-using WinHub.ApiService.Common;
-
-namespace WinHub.ApiService.Features.Contests.UpdateContest;
-public record UpdateContestCommand : IRequest<Result>
+public class CreateContestRequest
 {
-	public Guid Id { get; set; }
 	public string Name { get; set; } = string.Empty;
 	public string Description { get; set; } = string.Empty;
 	public DateTime StartDateTime { get; set; }
