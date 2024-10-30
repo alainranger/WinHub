@@ -1,0 +1,43 @@
+@baseUrl = https://localhost:7541
+
+# @name createContest
+POST {{baseUrl}}/api/contest HTTP/1.1
+content-type: application/json
+
+{
+  "name": "Concour #1",
+  "description": "Concour #1",
+  "startDateTime": "2024-11-01T04:46:12.939Z",
+  "endDateTime": "2024-11-28T04:46:12.939Z",
+  "contestDateTime": "2024-11-28T04:46:12.939Z"
+}
+
+### 
+
+# @name createParticipant
+POST {{baseUrl}}/api/participant HTTP/1.1
+content-type: application/json
+
+{
+  "firstname": "Alain",
+  "lastname": "Ranger",
+  "email": "test@test"
+}
+
+###
+
+POST {{baseUrl}}/api/participation HTTP/1.1
+content-type: application/json
+
+{
+  "contestId": "{{createContest.response.body.$}}",
+  "participantId": "{{createParticipant.response.body.$}}"
+}
+
+###
+
+GET {{baseUrl}}/api/contest/{{createContest.response.body.$}}/participations HTTP/1.1
+
+###
+
+GET {{baseUrl}}/api/participant/{{createParticipant.response.body.$}}/participations HTTP/1.1
