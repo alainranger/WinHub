@@ -1,14 +1,13 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
 // Setup Database
-var dbName = "postgresdb";
-var postgres = builder.AddPostgres("postgres")
-	.WithEnvironment("POSTGRES_DB", dbName);
-var postgresdb = postgres.AddDatabase(dbName);
+var dbName = "winhubdb";
+var sql = builder.AddSqlServer("sql");
+var sqldb = sql.AddDatabase(dbName);
 
 // Setup backend
 var apiService = builder.AddProject<Projects.WinHub_ApiService>("apiservice")
-	.WithReference(postgresdb);
+	.WithReference(sqldb).WaitFor(sqldb);
 
 // Setip Angular Frontend
 builder.AddNpmApp("angular", "../WinHub.Web.Angular")
