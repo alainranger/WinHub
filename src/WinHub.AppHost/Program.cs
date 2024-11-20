@@ -20,10 +20,9 @@ builder.AddNpmApp("angular", "../WinHub.Web.Angular")
 	.PublishAsDockerFile();
 
 // Setup Blazor frontend
-// builder.AddProject<Projects.WinHub_Web>("webfrontend")
-// 	.WithExternalHttpEndpoints()
-#pragma warning disable S125 // Sections of code should not be commented out
-// 	.WithReference(apiService);
+builder.AddProject<Projects.WinHub_Web>("webfrontend")
+	.WithExternalHttpEndpoints()
+	.WithReference(apiService);
 
 
 await builder.Build().RunAsync().ConfigureAwait(true);
