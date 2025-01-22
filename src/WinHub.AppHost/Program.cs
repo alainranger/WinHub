@@ -11,7 +11,7 @@ var apiService = builder.AddProject<Projects.WinHub_ApiService>("apiservice")
 
 // Setip Angular Frontend
 builder.AddNpmApp("angular", "../WinHub.Web.Angular")
-    .WithReference(apiService)    
+    .WithReference(apiService)
     .WithHttpEndpoint(env: "PORT")
     .WithExternalHttpEndpoints()
     .PublishAsDockerFile();
