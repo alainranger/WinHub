@@ -12,12 +12,17 @@ var apiService = builder.AddProject<Projects.WinHub_ApiService>("apiservice")
 	.WithReference(database)
 	.WaitFor(database);
 
+#pragma warning disable S1135 // Track uses of "TODO" tags
+#pragma warning disable S125 // Sections of code should not be commented out
+// TODO: Setup Angular Frontend(Do react before)
 // Setip Angular Frontend
-builder.AddNpmApp("angular", "../WinHub.Web.Angular")
-	.WithReference(apiService)
-	.WithHttpEndpoint(env: "PORT")
-	.WithExternalHttpEndpoints()
-	.PublishAsDockerFile();
+// builder.AddNpmApp("angular", "../WinHub.Web.Angular")
+// 	.WithReference(apiService)
+// 	.WithHttpEndpoint(env: "PORT")
+// 	.WithExternalHttpEndpoints()
+// 	.PublishAsDockerFile();
+#pragma warning restore S125 // Sections of code should not be commented out
+#pragma warning restore S1135 // Track uses of "TODO" tags
 
 // Setup Blazor frontend
 builder.AddProject<Projects.WinHub_Web>("webfrontend")
@@ -26,4 +31,4 @@ builder.AddProject<Projects.WinHub_Web>("webfrontend")
 
 
 await builder.Build().RunAsync().ConfigureAwait(true);
-#pragma warning restore S125 // Sections of code should not be commented out
+
