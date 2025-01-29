@@ -14,6 +14,11 @@ content-type: application/json
 
 ### 
 
+GET {{baseUrl}}/api/contests HTTP/1.1
+content-type: application/json
+
+###
+
 # @name createParticipant
 POST {{baseUrl}}/api/participant HTTP/1.1
 content-type: application/json
@@ -23,6 +28,16 @@ content-type: application/json
   "lastname": "Ranger",
   "email": "test@test"
 }
+
+###
+
+GET {{baseUrl}}/api/participant/{{createParticipant.response.body.$}}/participations HTTP/1.1
+content-type: application/json
+
+###
+
+GET {{baseUrl}}/api/participants HTTP/1.1
+content-type: application/json
 
 ###
 
@@ -36,8 +51,9 @@ content-type: application/json
 
 ###
 
-GET {{baseUrl}}/api/contest/{{createContest.response.body.$}}/participations HTTP/1.1
+GET {{baseUrl}}/api/participations HTTP/1.1
+content-type: application/json
 
 ###
 
-GET {{baseUrl}}/api/participant/{{createParticipant.response.body.$}}/participations HTTP/1.1
+GET {{baseUrl}}/api/contest/{{createContest.response.body.$}}/participations HTTP/1.1
