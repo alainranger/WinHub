@@ -20,7 +20,7 @@ builder.AddProject<Projects.WinHub_Blazor>("blazor")
 	.WithReference(apiService);
 
 // Setup React frontend
-builder.AddNpmApp("react", "../frontend/WinHub.React", "dev")
+builder.AddNpmApp("react", "../frontend/WinHub.React")
 	.WithReference(apiService)
 	.WaitFor(apiService)
 	.WithEnvironment("BROWSER", "none") // Disable opening browser on npm start
