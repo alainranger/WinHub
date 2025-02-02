@@ -28,4 +28,12 @@ builder.AddNpmApp("react", "../frontend/WinHub.React", "dev")
 	.WithExternalHttpEndpoints()
 	.PublishAsDockerFile();
 
+// Setup Angular frontend
+builder.AddNpmApp("angular", "../frontend/WinHub.Angular")
+	.WithReference(apiService)
+	.WaitFor(apiService)
+	.WithHttpEndpoint(env: "PORT")
+	.WithExternalHttpEndpoints()
+	.PublishAsDockerFile();
+
 await builder.Build().RunAsync().ConfigureAwait(true);
