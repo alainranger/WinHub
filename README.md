@@ -1,5 +1,7 @@
 # WinHub
 
+[![.NET](https://github.com/alainranger/WinHub/actions/workflows/dotnet.yml/badge.svg)](https://github.com/alainranger/WinHub/actions/workflows/dotnet.yml)
+
 WinHub est une application de gestion de tirage au sort.  Il permet de créer un ou plusieurs tirages.  
 Chaque tirage a ses participants et chaque participant peu avoir un ou plusieurs participations.
 
