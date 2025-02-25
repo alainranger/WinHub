@@ -72,6 +72,8 @@ public class AppHostTests(ITestOutputHelper testOutput)
 				}
 				catch (Exception e)
 				{
+
+
 					throw new XunitException($"Failed calling endpoint '{client.BaseAddress}{path.TrimStart('/')} for resource '{resource}' in app '{Path.GetFileNameWithoutExtension(appHostPath)}'", e);
 				}
 
