@@ -23,7 +23,7 @@ builder.AddProject<Projects.WinHub_Blazor>("frontend-blazor")
 
 /*
 
-// Setup React frontend
+// Setup React Vite frontend
 builder.AddNpmApp("frontend-react", "../frontend/WinHub.React")
 	.WithReference(apiService)
 	.WaitFor(apiService)ª
