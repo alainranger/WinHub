@@ -14,7 +14,7 @@ public class CreateParticipantHandler(WinHubContext dbContext, IValidator<Create
 	{
 		ArgumentNullException.ThrowIfNull(request);
 
-        var validatorResult = await validator.ValidateAsync(request, cancellationToken).ConfigureAwait(false);
+		var validatorResult = await validator.ValidateAsync(request, cancellationToken).ConfigureAwait(false);
 		if (!validatorResult.IsValid)
 			return Result.Failure<Guid>(new ApiError(
 				"CreateParticipant.Validation",
@@ -25,15 +25,15 @@ public class CreateParticipantHandler(WinHubContext dbContext, IValidator<Create
 		{
 			Id = Guid.NewGuid(),
 			Firstname = request.Firstname,
-            Lastname = request.Lastname,
-            Email = request.Email,
-            CreatedAt = DateTime.UtcNow        
+			Lastname = request.Lastname,
+			Email = request.Email,
+			CreatedAt = DateTime.UtcNow
 		};
 
 		dbContext.Add(participant);
 
 		await dbContext.SaveChangesAsync(cancellationToken).ConfigureAwait(true);
 
-        return participant.Id;
+		return participant.Id;
 	}
 }
