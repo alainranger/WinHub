@@ -8,7 +8,7 @@ using WinHub.ApiService.Contracts.ParticipantFeature;
 
 namespace WinHub.ApiService.Features.Participants.CreateParticipant;
 
-public class CreateParticipantEndPoint: ICarterModule
+public class CreateParticipantEndPoint : ICarterModule
 {
 	public void AddRoutes(IEndpointRouteBuilder app) =>
 		app.MapPost("api/participant", async (CreateParticipantRequest request, ISender sender) =>

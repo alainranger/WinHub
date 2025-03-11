@@ -33,7 +33,7 @@ public class UpdateParticipantHandler(WinHubContext dbContext, IValidator<Update
 		participant.Id = request.Id;
 		participant.Firstname = request.Firstname;
 		participant.Lastname = request.Lastname;
-		participant.Email = request.Email;		
+		participant.Email = request.Email;
 
 		dbContext.Update(participant);
 

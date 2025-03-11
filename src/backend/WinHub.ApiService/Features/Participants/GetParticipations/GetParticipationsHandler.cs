@@ -1,5 +1,6 @@
 ﻿
 using Mapster;
+
 using MediatR;
 
 using Microsoft.EntityFrameworkCore;
@@ -17,10 +18,10 @@ public class GetParticipationsHandler(WinHubContext dbContest) : IRequestHandler
 		var participationResponse = await dbContest
 			.Participations
 			.Where(participation => participation.ParticipantId == request.ParticipantId)
-			.ProjectToType<ParticipationResponse>()			
+			.ProjectToType<ParticipationResponse>()
 			.ToListAsync(cancellationToken)
 			.ConfigureAwait(true);
-		
+
 		return participationResponse;
 	}
 }
