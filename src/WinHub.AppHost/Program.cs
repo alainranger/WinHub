@@ -1,3 +1,5 @@
+using Google.Protobuf.WellKnownTypes;
+
 var builder = DistributedApplication.CreateBuilder(args);
 
 // Setup Database
@@ -19,7 +21,7 @@ builder.AddProject<Projects.WinHub_Blazor>("frontend-blazor")
 	.WithExternalHttpEndpoints()
 	.WithReference(apiService);
 
-// Setup React frontend
+// Setup React Vite frontend
 builder.AddNpmApp("frontend-react", "../frontend/WinHub.React")
 	.WithReference(apiService)
 	.WaitFor(apiService)
