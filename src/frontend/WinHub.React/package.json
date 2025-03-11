@@ -4,8 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --port $PORT",
-    "start": "vite --port $PORT",
+    "dev": "run-script-os",
+    "start": "run-script-os",
+    "start:win32": "vite --port %PORT%",
+    "start:default": "vite --port $PORT",
+    "dev:win32": "vite --port %PORT%",
+    "dev:default": "vite --port $PORT",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -19,11 +23,12 @@
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
-    "eslint": "^9.21.0",
+    "eslint": "^9.22.0",
     "eslint-plugin-react": "^7.37.4",
-    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
-    "vite": "^6.2.0"
+    "vite": "^6.2.1",
+    "run-script-os": "^1.1.6"
   }
 }
