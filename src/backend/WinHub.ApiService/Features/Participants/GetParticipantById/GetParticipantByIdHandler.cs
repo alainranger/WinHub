@@ -1,11 +1,9 @@
 ﻿
 using MediatR;
-
 using Microsoft.EntityFrameworkCore;
-
-using WinHub.ApiService.Common;
 using WinHub.ApiService.Contracts.ParticipantFeature;
 using WinHub.ApiService.Database;
+using WinHub.Shared.Common;
 
 namespace WinHub.ApiService.Features.Participants.GetParticipantById;
 

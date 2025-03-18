@@ -1,13 +1,11 @@
 ﻿
 using Mapster;
-
 using MediatR;
-
 using Microsoft.EntityFrameworkCore;
 
-using WinHub.ApiService.Common;
-using WinHub.ApiService.Contracts.ContestFeature;
 using WinHub.ApiService.Database;
+using WinHub.Shared.Common;
+using WinHub.Shared.Contracts.ContestFeature;
 
 namespace WinHub.ApiService.Features.Contests.GetAllContest;
 

@@ -1,4 +1,4 @@
-namespace WinHub.ApiService.Common;
+namespace WinHub.Shared.Common;
 
 /// <summary>
 /// Represents the result of some operation, with status information and possibly a value and an error.

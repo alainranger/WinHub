@@ -1,4 +1,4 @@
-﻿namespace WinHub.ApiService.Common;
+﻿namespace WinHub.Shared.Common;
 
 public class Result
 {

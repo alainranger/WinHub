@@ -1,7 +1,6 @@
 ﻿using MediatR;
-
-using WinHub.ApiService.Common;
 using WinHub.ApiService.Contracts.ParticipationFeature;
+using WinHub.Shared.Common;
 
 namespace WinHub.ApiService.Features.Contests.GetParticipations;
 

@@ -1,4 +1,4 @@
-namespace WinHub.ApiService.Common;
+namespace WinHub.Shared.Common;
 
 /// <summary>
 /// Initializes a new instance of the <see cref="ApiError"/> class.

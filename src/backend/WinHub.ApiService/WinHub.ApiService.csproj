@@ -7,19 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="../../shared/WinHub.Shared/WinHub.Shared.csproj" />
     <ProjectReference Include="..\..\shared\WinHub.ServiceDefaults\WinHub.ServiceDefaults.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer "/>
+    <PackageReference Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer " />
     <PackageReference Include="Aspire.Npgsql.EntityFrameworkCore.PostgreSQL" />
     <PackageReference Include="Carter" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
     <PackageReference Include="Mapster" />
     <PackageReference Include="MediatR" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" />
-    <PackageReference Include="Swashbuckle.AspNetCore" />
     <PackageReference Include="System.Text.Json" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+    <PackageReference Include="Scalar.AspNetCore" />
   </ItemGroup>
 
 </Project>

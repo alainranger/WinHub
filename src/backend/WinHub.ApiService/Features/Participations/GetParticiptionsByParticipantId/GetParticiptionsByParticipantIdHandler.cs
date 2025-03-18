@@ -1,12 +1,10 @@
 ﻿
 using Mapster;
 using MediatR;
-
 using Microsoft.EntityFrameworkCore;
-
-using WinHub.ApiService.Common;
 using WinHub.ApiService.Contracts.ParticipationFeature;
 using WinHub.ApiService.Database;
+using WinHub.Shared.Common;
 
 namespace WinHub.ApiService.Features.Participations.GetParticiptionsByParticipantId;
 
@@ -17,7 +15,7 @@ public class GetParticiptionsByParticipantIdHandler(WinHubContext dbContest) : I
 		var participationResponse = await dbContest
 			.Participations
 			.Where(participation => participation.ParticipantId == request.ParticipantId)
-			.ProjectToType<ParticipationResponse>()			
+			.ProjectToType<ParticipationResponse>()
 			.ToListAsync(cancellationToken)
 			.ConfigureAwait(true);
 

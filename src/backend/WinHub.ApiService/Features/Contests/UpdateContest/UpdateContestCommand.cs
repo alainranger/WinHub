@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-using WinHub.ApiService.Common;
+using WinHub.Shared.Common;
 
 namespace WinHub.ApiService.Features.Contests.UpdateContest;
 public record UpdateContestCommand : IRequest<Result>
