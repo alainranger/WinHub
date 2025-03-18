@@ -44,6 +44,8 @@ Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "WinHub.React", "src\fronten
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "WinHub.VueJS", "src\frontend\WinHub.VueJS\WinHub.VueJS.esproj", "{B58B7BC4-8883-BF43-EFBA-0DAD3DD55F6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinHub.Shared", "src\shared\WinHub.Shared\WinHub.Shared.csproj", "{E77EFAA9-0606-41E5-9888-71ABED78EF0B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

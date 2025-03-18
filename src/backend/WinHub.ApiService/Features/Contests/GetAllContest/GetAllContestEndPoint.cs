@@ -1,8 +1,8 @@
 ﻿using Carter;
-
 using MediatR;
-
 using WinHub.Shared.Common;
+using WinHub.Shared.Common;
+using WinHub.Shared.Contracts.ContestFeature;
 using WinHub.Shared.Contracts.ContestFeature;
 namespace WinHub.ApiService.Features.Contests.GetAllContest;
 
@@ -18,7 +18,7 @@ public class GetContestByIdEndPoint : ICarterModule
 			if (result.IsFailure)
 				return Results.NotFound(result.Error);
 
-			return Results.Ok(result.Value);
+			return Results.Ok(result);
 		})
 		.Produces<Result<List<ContestResponse>>>(StatusCodes.Status200OK)
 		.WithOpenApi();

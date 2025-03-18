@@ -1,4 +1,5 @@
 using WinHub.AppHost.Extensions;
+using WinHub.AppHost.Extensions;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
@@ -12,6 +13,8 @@ var database = postgres.AddDatabase(dbName);
 // Setup backend
 var apiService = builder.AddProject<Projects.WinHub_ApiService>("apiservice")
 	.WithScalar()
+var apiService = builder.AddProject<Projects.WinHub_ApiService>("apiservice")
+	.WithScalar()
 	.WithReference(database)
 	.WaitFor(database);
 
@@ -22,10 +25,15 @@ builder.AddProject<Projects.WinHub_Blazor>("frontend-blazor")
 	.WaitFor(apiService);
 
 /*
+	.WithReference(apiService)
+	.WaitFor(apiService);
+
+/*
 
 // Setup React Vite frontend
 builder.AddNpmApp("frontend-react", "../frontend/WinHub.React")
 	.WithReference(apiService)
+	.WaitFor(apiService)ª
 	.WaitFor(apiService)ª
 	.WithEnvironment("BROWSER", "none") // Disable opening browser on npm start
 	.WithHttpEndpoint(env: "PORT")
@@ -47,6 +55,8 @@ builder.AddNpmApp("frontend-vue", "../frontend/WinHub.VueJS")
 	.WithHttpEndpoint(env: "PORT")
 	.WithExternalHttpEndpoints()
 	.PublishAsDockerFile();
+
+*/
 
 */
 
