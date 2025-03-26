@@ -1,0 +1,46 @@
+@page "/contests"
+
+<PageTitle>Contests</PageTitle>
+
+<h1>Contests</h1>
+
+<p>
+	<a href="contests/create">Create New</a>
+</p>
+
+@if (contestList != null && contestList.Any())
+{
+	<div class="list-group">
+		@foreach (var contest in contestList)
+		{
+			<div class="list-group-item list-group-item-action">
+				@contest.Name
+				<a href="@($"contests/edit?id={contest.Id}")">Edit</a>
+				<a href="@($"contests/details?id={contest.Id}")">Detail</a>
+				<a href="@($"contests/delete?id={contest.Id}")">Delete</a>
+			</div>
+		}
+	</div>
+}
+else
+{
+	<p>No contest found.</p>
+}
+
+@code {
+	private List<Contest>? contestList;
+	private string titleFilter = string.Empty;
+
+	protected override async Task OnInitializedAsync()
+	{
+		await LoadContests();
+	}
+
+	private async Task LoadContests()
+	{
+		var contests = await ContestService.GetContestsAsync();
+		contestList = contests;
+
+		await Task.CompletedTask;
+	}
+}

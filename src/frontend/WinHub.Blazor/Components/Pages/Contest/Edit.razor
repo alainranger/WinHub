@@ -1,0 +1,99 @@
+@page "/contests/edit"
+
+<PageTitle>Edit</PageTitle>
+
+<h1>Edit</h1>
+
+<h2>Contest</h2>
+<hr />
+
+@if (Model is null)
+{
+	<p><em>Loading...</em></p>
+}
+else
+{
+	<div class="row">
+		<div class="col-md-4">
+			<EditForm method="post" EditContext="editContext" OnValidSubmit="Submit" FormName="create" Enhance>
+				<DataAnnotationsValidator />
+				<ValidationSummary />
+
+				<div class="mb-3">
+					<label for="Name" class="form-label">Name:</label>
+					<InputText id="Name" @bind-Value="@Model.Name" class="form-control" />
+					<ValidationMessage For="() => Model.Name" class="text-danger" />
+					<div class="invalid-feedback">
+						@String.Join(", ", editContext!.GetValidationMessages(() =>
+						Model.Name!).ToArray())</div>
+			</div>
+
+			<div class="mb-3">
+				<label for="Description" class="form-label">Description:</label>
+				<InputText id="Description" @bind-Value="@Model.Description" class="form-control" />
+				<ValidationMessage For="() => Model.Description" class="text-danger" />
+			</div>
+
+			<div class="mb-3">
+				<label for="StartDateTime" class="form-label">Start:</label>
+				<InputDate id="StartDateTime" @bind-Value="@Model.StartDateTime" class="form-control" />
+				<ValidationMessage For="() => Model.StartDateTime" class="text-danger" />
+			</div>
+
+			<div class="mb-3">
+				<label for="EndDateTime" class="form-label">End:</label>
+				<InputDate id="EndDateTime" @bind-Value="@Model.EndDateTime" class="form-control" />
+				<ValidationMessage For="() => Model.EndDateTime" class="text-danger" />
+				<div class="invalid-feedback">@String.Join(", ",
+										editContext!.GetValidationMessages(() => Model.EndDateTime!).ToArray())</div>
+			</div>
+
+				<div class="mb-3">
+					<label for="ContestDateTime" class="form-label">Contest's Date:</label>
+					<InputDate id="ContestDateTime" @bind-Value="@Model.ContestDateTime" class="form-control" />
+					<ValidationMessage For="() => Model.ContestDateTime" class="text-danger" />
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</EditForm>
+		</div>
+	</div>
+}
+
+@code {
+	[SupplyParameterFromQuery]
+	private Guid Id { get; set; }
+
+	[SupplyParameterFromForm]
+	private Contest? Model { get; set; }
+
+	private EditContext? editContext;
+
+	protected override async Task OnInitializedAsync()
+	{
+		// Initialize any data or services needed for the component
+		Model ??= await ContestService.GetContestAsync(Id);
+		if (Model is null)
+		{
+			NavigationManager.NavigateTo("notfound");
+			return;
+		}
+		editContext = new(Model);
+	}
+
+	private async Task Submit()
+	{
+		if (Model is null)
+		{
+			throw new InvalidOperationException("Model cannot be null");
+		}
+		// Perform the update operation
+		Model.Id = Id;
+		var updated = await ContestService.UpdateContestAsync(Model);
+		if (!updated)
+		{
+			// Handle the error case
+			throw new InvalidOperationException("Failed to update the contest");
+		}
+		NavigationManager.NavigateTo("/contests");
+	}
+}

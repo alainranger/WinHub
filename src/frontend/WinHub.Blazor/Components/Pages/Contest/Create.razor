@@ -1,0 +1,76 @@
+@page "/contests/create"
+
+<PageTitle>Create</PageTitle>
+
+<h1>Create</h1>
+
+<h2>Contest</h2>
+
+<br />
+<div class="row">
+	<div class="col-md-4">
+		<EditForm method="post" EditContext="editContext" OnValidSubmit="Submit" FormName="create" Enhance>
+			<DataAnnotationsValidator />
+			<ValidationSummary />
+
+			<div class="mb-3">
+				<label for="Name" class="form-label">Name:</label>
+				<InputText id="Name" @bind-Value="@Model.Name" class="form-control" />
+				<ValidationMessage For="() => Model.Name" class="text-danger" />
+				<div class="invalid-feedback">@String.Join(", ",
+										editContext!.GetValidationMessages(() => Model.Name!).ToArray())</div>
+			</div>
+
+			<div class="mb-3">
+				<label for="Description" class="form-label">Description:</label>
+				<InputText id="Description" @bind-Value="@Model.Description" class="form-control" />
+				<ValidationMessage For="() => Model.Description" class="text-danger" />
+			</div>
+
+			<div class="mb-3">
+				<label for="StartDateTime" class="form-label">Start:</label>
+				<InputDate id="StartDateTime" @bind-Value="@Model.StartDateTime" class="form-control" />
+				<ValidationMessage For="() => Model.StartDateTime" class="text-danger" />
+			</div>
+
+			<div class="mb-3">
+				<label for="EndDateTime" class="form-label">End:</label>
+				<InputDate id="EndDateTime" @bind-Value="@Model.EndDateTime" class="form-control" />
+				<ValidationMessage For="() => Model.EndDateTime" class="text-danger" />
+				<div class="invalid-feedback">@String.Join(", ",
+										editContext!.GetValidationMessages(() => Model.EndDateTime!).ToArray())</div>
+			</div>
+
+			<div class="mb-3">
+				<label for="ContestDateTime" class="form-label">Contest's Date:</label>
+				<InputDate id="ContestDateTime" @bind-Value="@Model.ContestDateTime" class="form-control" />
+				<ValidationMessage For="() => Model.ContestDateTime" class="text-danger" />
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</EditForm>
+	</div>
+</div>
+
+<div>
+	<a href="/contests">Back to List</a>
+</div>
+@code {
+	private EditContext? editContext;
+	private string? errorMessage;
+
+	[SupplyParameterFromForm]
+	private Contest Model { get; set; } = new();
+
+	protected override void OnInitialized()
+	{
+		// Initialize any data or services needed for the component
+		Model ??= new();
+		editContext = new(Model);
+	}
+
+	private async Task Submit()
+	{
+		_ = await ContestService.CreateContestAsync(Model);
+		NavigationManager.NavigateTo("/contests");
+	}
+}

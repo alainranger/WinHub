@@ -36,7 +36,12 @@ public class Result
 	/// <summary>
 	/// Gets the error.
 	/// </summary>
-	public ApiError Error { get; }
+	public ApiError? Error { get; }
+
+	public Result()
+	{
+
+	}
 
 	/// <summary>
 	/// Returns a success <see cref="Result"/>.

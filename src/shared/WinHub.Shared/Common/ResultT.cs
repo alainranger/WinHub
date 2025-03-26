@@ -31,4 +31,8 @@ public class Result<TValue> : Result
 
 	public Result<TValue> ToResult() => Value;
 
+	public Result()
+	{
+
+	}
 }

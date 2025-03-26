@@ -5,3 +5,18 @@
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
+
+<p>
+	Environment: @Environnamet
+</p>
+
+@code {
+	private string Environnamet = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production";
+
+	// You can add any C# code here that you want to run when the component is initialized.
+	// For example, you could fetch data from an API or set up some initial state.
+	protected override void OnInitialized()
+	{
+		// Initialization logic goes here
+	}
+}

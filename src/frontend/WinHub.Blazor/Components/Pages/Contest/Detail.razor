@@ -1,0 +1,50 @@
+@page "/contests/detail"
+
+<PageTitle>Details</PageTitle>
+
+<h1>Details</h1>
+
+<div>
+	<h2>Contest</h2>
+	<hr />
+	@if (Model is null)
+	{
+		<p><em>Loading...</em></p>
+	}
+	else
+	{
+		<dl class="row">
+			<dt class="col-sm-2">Name</dt>
+			<dd class="col-sm-10">@Model.Name</dd>
+			<dt class="col-sm-2">Release Description</dt>
+			<dd class="col-sm-10">@Model.Description</dd>
+			<dt class="col-sm-2">Start</dt>
+			<dd class="col-sm-10">@Model.StartDateTime</dd>
+			<dt class="col-sm-2">End</dt>
+			<dd class="col-sm-10">@Model.EndDateTime</dd>
+			<dt class="col-sm-2">Contest date</dt>
+			<dd class="col-sm-10">@Model.ContestDateTime</dd>
+		</dl>
+		<div>
+			<a href="@($"/movies/edit?id={Model.Id}")">Edit</a> |
+			<a href="@($"/movies")">Back to List</a>
+		</div>
+	}
+</div>
+
+@code {
+	private Contest? Model;
+
+	[SupplyParameterFromQuery]
+	private Guid Id { get; set; }
+
+	protected override async Task OnInitializedAsync()
+	{
+		Model = await ContestService.GetContestAsync(Id);
+
+		if (Model is null)
+		{
+			NavigationManager.NavigateTo("notfound");
+		}
+	}
+}

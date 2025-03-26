@@ -18,7 +18,7 @@ public class GetContestByIdEndPoint : ICarterModule
 			if (result.IsFailure)
 				return Results.NotFound(result.Error);
 
-			return Results.Ok(result);
+			return Results.Ok(result.Value);
 		})
 		.Produces<Result<List<ContestResponse>>>(StatusCodes.Status200OK)
 		.WithOpenApi();

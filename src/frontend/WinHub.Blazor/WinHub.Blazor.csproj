@@ -6,4 +6,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Mapster" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../shared/WinHub.ServiceDefaults/WinHub.ServiceDefaults.csproj" />
+    <ProjectReference Include="../../shared/WinHub.Shared/WinHub.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
