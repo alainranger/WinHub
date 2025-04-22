@@ -363,3 +363,6 @@ FodyWeavers.xsd
 
 # SqLite DB
 app.db*
+
+# Others
+.DS_Store
