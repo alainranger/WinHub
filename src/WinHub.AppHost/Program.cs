@@ -1,5 +1,4 @@
 using WinHub.AppHost.Extensions;
-using WinHub.AppHost.Extensions;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
@@ -13,18 +12,12 @@ var database = postgres.AddDatabase(dbName);
 // Setup backend
 var apiService = builder.AddProject<Projects.WinHub_ApiService>("apiservice")
 	.WithScalar()
-var apiService = builder.AddProject<Projects.WinHub_ApiService>("apiservice")
-	.WithScalar()
 	.WithReference(database)
 	.WaitFor(database);
 
 // Setup Blazor frontend
 builder.AddProject<Projects.WinHub_Blazor>("frontend-blazor")
 	.WithExternalHttpEndpoints()
-	.WithReference(apiService)
-	.WaitFor(apiService);
-
-/*
 	.WithReference(apiService)
 	.WaitFor(apiService);
 
@@ -55,8 +48,6 @@ builder.AddNpmApp("frontend-vue", "../frontend/WinHub.VueJS")
 	.WithHttpEndpoint(env: "PORT")
 	.WithExternalHttpEndpoints()
 	.PublishAsDockerFile();
-
-*/
 
 */
 
