@@ -46,4 +46,12 @@ builder.AddNpmApp("frontend-vue", "../frontend/WinHub.VueJS")
 	.WithExternalHttpEndpoints()
 	.PublishAsDockerFile();
 
+// Setup Svelte frontend
+builder.AddNpmApp("frontend-svelte", "../frontend/WinHub.Svelte", "dev")
+	.WithReference(apiService)
+	.WaitFor(apiService)
+	.WithHttpEndpoint(env: "VITE_PORT")
+	.WithExternalHttpEndpoints()
+	.PublishAsDockerFile();
+
 await builder.Build().RunAsync().ConfigureAwait(true);
