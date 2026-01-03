@@ -92,7 +92,7 @@ public class AppHostTests(ITestOutputHelper testOutput)
 	public static TheoryData<TestEndpoints> TestEndpoints() =>
 		new() {
 			new TestEndpoints("WinHub.AppHost", new() {
-				{ "apiservice", ["/api/contests", "/health", "/alive"] }
+				{ "backend-apiservice", ["/api/contests", "/health", "/alive"] }
 			})
 		};
 }
