@@ -18,12 +18,6 @@ export default defineConfig(({ mode }) => {
 					secure: false,
 				}
 			}
-		},
-		build: {
-			outDir: 'dist',
-			rollupOptions: {
-				input: './index.html'
-			}
 		}
 	}
 })
